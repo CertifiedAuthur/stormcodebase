@@ -2,40 +2,6 @@ import json
 import csv
 import os
 
-# def jsonl_to_csv(jsonl_file, csv_file, fields):
-#     """Convert JSONL to CSV."""
-#     with open(jsonl_file, 'r', encoding='utf-8') as infile, open(csv_file, 'w', encoding='utf-8', newline='') as outfile:
-#         writer = csv.DictWriter(outfile, fieldnames=fields)
-#         writer.writeheader()
-#         for line in infile:
-#             record = json.loads(line.strip())
-#             filtered_record = {field: record.get(field, "") for field in fields}
-#             writer.writerow(filtered_record)
-#     print(f"Converted {jsonl_file} to {csv_file}")
-
-# def initialize_vectorm(datasets_folder):
-#     """Prepare datasets and return the CSV folder path."""
-    
-#     # Ensure datasets folder exists
-#     if not os.path.isdir(datasets_folder):
-#         raise ValueError(f"The folder {datasets_folder} does not exist.")
-    
-#     # Create a CSV subfolder inside datasets folder
-#     csv_folder = os.path.join(datasets_folder, "csv")
-#     os.makedirs(csv_folder, exist_ok=True)
-    
-#     fields = ["id", "content", "title", "url", "description"]
-    
-#     # Convert each JSONL file in datasets_folder to CSV
-#     for dataset in os.listdir(datasets_folder):
-#         if dataset.endswith(".jsonl"):
-#             jsonl_file = os.path.join(datasets_folder, dataset)
-#             csv_file = os.path.join(csv_folder, dataset.replace(".jsonl", ".csv"))
-#             jsonl_to_csv(jsonl_file, csv_file, fields)
-    
-#     # Return the folder containing CSV files
-#     return csv_folder
-
 def jsonl_to_csv(jsonl_file, csv_file, fields):
     """
     Convert JSONL to CSV with support for nested keys.
