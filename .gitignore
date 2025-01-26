@@ -20,7 +20,6 @@ build/
 .venv
 
 # Project-specific
-secrets.toml
 *.log
 */assertion.log
 *results/
