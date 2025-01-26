@@ -425,6 +425,17 @@ class STORMWikiRunner(Engine):
                 information_table=information_table,
                 callback_handler=callback_handler,
             )
+            
+            # Debugging step to ensure data is loaded
+            if not information_table:
+                print("[DEBUG] Information Table is empty or not loaded properly.")
+            else:
+                print(f"[DEBUG] Information Table loaded successfully with {len(information_table)} entries.")
+
+            if not outline:
+                print("[DEBUG] Outline is empty or not loaded properly.")
+            else:
+                print(f"[DEBUG] Outline loaded with") #{len(outline)} sections.")
 
         # article polishing module
         if do_polish_article:

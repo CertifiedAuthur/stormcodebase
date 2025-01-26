@@ -62,6 +62,10 @@ class StormInformationTable(InformationTable):
             StormInformationTable.construct_url_to_info(self.conversations)
         )
 
+    def __len__(self):
+        # Return the number of items in url_to_info (the dictionary of information objects)
+        return len(self.url_to_info)
+
     @staticmethod
     def construct_url_to_info(
         conversations: List[Tuple[str, List[DialogueTurn]]]
@@ -151,6 +155,10 @@ class StormArticle(Article):
     def __init__(self, topic_name):
         super().__init__(topic_name=topic_name)
         self.reference = {"url_to_unified_index": {}, "url_to_info": {}}
+        
+    def __len__(self):
+        # Return the number of items in the 'url_to_info' dictionary
+        return len(self.reference["url_to_info"])
 
     def find_section(
         self, node: ArticleSectionNode, name: str

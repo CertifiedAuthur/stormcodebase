@@ -119,7 +119,7 @@ class QdrantVectorStoreManager:
             raise ValueError("Please provide a url for the Qdrant server.")
 
         try:
-            client = QdrantClient(url=url, api_key=api_key)
+            client = QdrantClient(url=url, api_key=api_key, timeout=18000)
             return QdrantVectorStoreManager._check_create_collection(
                 client=client, collection_name=collection_name, model=model
             )
